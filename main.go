@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/GreyNoise-Intelligence/terraform-provider-clc/clc"
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/terraform-providers/terraform-provider-clc/clc"
 )
 
 func main() {

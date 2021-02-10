@@ -12,6 +12,7 @@ import (
 	"github.com/CenturyLinkCloud/clc-sdk/status"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform/version"
 )
 
 // Provider implements ResourceProvider for CLC
@@ -58,7 +59,7 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Failed to create CLC config with provided details: %v", err)
 	}
-	config.UserAgent = fmt.Sprintf("terraform-clc terraform/%s", terraform.Version)
+	config.UserAgent = fmt.Sprintf("terraform-clc terraform/%s", version.Version)
 	// user requested alias override or sub-account
 	if al := d.Get("account").(string); al != "" {
 		config.Alias = al
